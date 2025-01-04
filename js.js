@@ -54,12 +54,14 @@ function playRound(human,computer) {
 console.log("The Score is: Computer-" + computerScore + " Human-" + humanScore);    
 }
 
-getHumanChoice()
-getComputerChoice(Math.floor(Math.random()*3))
-playRound(humanselect,computerselect);
-  
-       
 
+for (let step = 0; step < 5; step++){
+    getHumanChoice()
+    getComputerChoice(Math.floor(Math.random()*3))
+    playRound(humanselect,computerselect);
+}
+
+       
 
 
 
