@@ -33,41 +33,72 @@ function getComputerChoice(roll) {
 
 function playRound(human,computer) {
     if (human=="scissors"&&computer=="scissors") { 
-        console.log("Its a Tie!");
+        resultsdiv.textContent = "Its a Tie!";
     } else if (human=="paper"&&computer=="paper") {
-        console.log("Its a Tie!");
+        resultsdiv.textContent = "Its a Tie!";
     } else if (human=="rock"&&computer=="rock") {
-        console.log("Its a Tie!");
+        resultsdiv.textContent = "Its a Tie!";
     } else if (human=="scissors"&&computer=="paper") { 
-        console.log("Congratulations, you win!");
+        resultsdiv.textContent = "Congratulations, you win!";
         humanScore = humanScore + 1;
     } else if (human=="paper"&&computer=="rock") { 
-        console.log("Congratulations, you win!");
+        resultsdiv.textContent = "Congratulations, you win!";
         humanScore = humanScore + 1;
     } else if (human=="rock"&&computer=="scissors") { 
-        console.log("Congratulations, you win!");
+        resultsdiv.textContent = "Congratulations, you win!";
         humanScore = humanScore + 1;
     } else {
-        console.log("You lose! And you suck!");
+        resultsdiv.textContent = "You lose! And you suck!";
         computerScore = computerScore + 1;
     }
-console.log("The Score is: Computer-" + computerScore + " Human-" + humanScore);    
+resultssummarydiv.textContent = "The Score is: Computer-" + computerScore + " Human-" + humanScore;    
 }
 
-
-
 btnRock.addEventListener("click", () => {
+    if (computerScore == 5) {
+        return;
+    }
+    if (humanScore == 5) {
+        return;
+    }
     getComputerChoice(Math.floor(Math.random()*3));
     playRound("rock",computerselect);
+    whoWins(computerScore, humanScore);
   });
 btnPaper.addEventListener("click", () => {
+    if (computerScore == 5) {
+        return;
+    }
+    if (humanScore == 5) {
+        return;
+    }
     getComputerChoice(Math.floor(Math.random()*3));
     playRound("paper",computerselect);
+    whoWins(computerScore, humanScore);
   });
 btnScissors.addEventListener("click", () => {
+    if (computerScore == 5) {
+        return;
+    }
+    if (humanScore == 5) {
+        return;
+    }
     getComputerChoice(Math.floor(Math.random()*3));
     playRound("scissors",computerselect);
+    whoWins(computerScore, humanScore);
   });
+
+function whoWins(computerScore, humanScore) {
+  if (computerScore ==5) {
+    winnerdiv.textContent = "Game Over! Computer Wins!";
+}
+    
+  else if (humanScore == 5) {
+    winnerdiv.textContent = "Game Over! HumanWins!";
+} 
+  }
+  
+
 
 /*for (let step = 0; step < 5; step++){
     getHumanChoice()
