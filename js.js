@@ -16,7 +16,7 @@ function getComputerChoice(roll) {
     computerselect = computerchoice
     }
 
-function getHumanChoice() {
+/*function getHumanChoice() {
     let humanchoice = prompt("Whats your play?").toLowerCase();
         if (humanchoice == "rock") {
             console.log(humanchoice);
@@ -29,7 +29,7 @@ function getHumanChoice() {
             getHumanChoice();
         }
         humanselect = humanchoice
-}
+}*/
 
 function playRound(human,computer) {
     if (human=="scissors"&&computer=="scissors") { 
@@ -55,11 +55,25 @@ console.log("The Score is: Computer-" + computerScore + " Human-" + humanScore);
 }
 
 
-for (let step = 0; step < 5; step++){
+
+btnRock.addEventListener("click", () => {
+    getComputerChoice(Math.floor(Math.random()*3));
+    playRound("rock",computerselect);
+  });
+btnPaper.addEventListener("click", () => {
+    getComputerChoice(Math.floor(Math.random()*3));
+    playRound("paper",computerselect);
+  });
+btnScissors.addEventListener("click", () => {
+    getComputerChoice(Math.floor(Math.random()*3));
+    playRound("scissors",computerselect);
+  });
+
+/*for (let step = 0; step < 5; step++){
     getHumanChoice()
     getComputerChoice(Math.floor(Math.random()*3))
     playRound(humanselect,computerselect);
-}
+}*/
 
        
 
